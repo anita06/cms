@@ -1,0 +1,16 @@
+
+<% @page_title = "| Section" %>
+
+<%= link_to("Back To List", {:action => 'index'}, :class => 'test') %>
+
+<h1>Delete Subject</h1>
+
+  <%= form_for(:section, :url => {:action => 'destroy', :id => @section.id}) do |f| %>
+
+    <p> Are you sure you want to permanently delete this section? </p>
+
+    <%= @section.name  %>
+
+  <%= submit_tag("Delete Subject") %>
+
+<% end %>

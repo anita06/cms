@@ -1,0 +1,12 @@
+<% @page_title = "| Subject" %>
+
+<%= link_to("Back To List", {:action => 'index'}, :class => 'test') %>
+<h1>Edit Subject</h1>
+
+<%= form_for(:subject, :url => {:action => 'update', :id => @subject.id}) do |f| %>
+
+  <% # Calling partial template _form.html.erb  %>
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+  <%= submit_tag("Update Subject") %>
+
+<% end %>

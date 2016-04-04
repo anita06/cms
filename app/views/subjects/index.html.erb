@@ -1,0 +1,26 @@
+<% @page_title = "| Subject" %>
+
+<h1>Subjects</h1>
+
+<%= link_to("Add New Subject", {:action => 'new'}, :class => 'test') %>
+<table>
+  <tr>
+    <th>&nbsp;</th>
+    <th>Subject</th>
+    <th>Visible</th>
+    <!--<th>Pages</th>-->
+    <th>Actions</th>
+  </tr>
+  <% @subjects.each do |subject| %>
+  <tr>
+    <td><%= subject.position %> </td>
+    <td><%= subject.name %> </td>
+    <td><%= status_tag(subject.visible) %> </td>
+    <td>
+      <%= link_to("Show", { :action => 'show', :id => subject.id }, :class => 'show') %>
+      <%= link_to("Edit", { :action => 'edit', :id => subject.id }, :class => 'edit') %>
+      <%= link_to("Delete",{ :action =>'delete',:id => subject.id}, :class => 'delete') %>
+    </td>
+  </tr>
+  <% end %>
+</table>

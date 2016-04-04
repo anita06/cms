@@ -1,0 +1,26 @@
+<% @page_title = "| Section" %>
+
+<%= link_to("Add New Section", {:action => 'new'} ) %>
+<h1>Sections</h1>
+<table>
+  <tr>
+    <th>Page Id</th>
+    <th>Position</th>
+    <th>Section</th>
+    <th>Visible</th>
+    <th>Actions</th>
+  </tr>
+  <% @sections.each do |section|  %>
+    <tr>
+      <td><%= section.page_id %></td>
+      <td><%= section.position %></td>
+      <td><%= section.name %></td>
+      <td><%= section.visible %></td>
+      <td>
+        <%= link_to("Show", { :action => 'show', :id => section.id } ) %>
+        <%= link_to("Edit", { :action => 'edit', :id => section.id } ) %>
+        <%= link_to("Delete", { :action => 'delete', :id => section.id } ) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

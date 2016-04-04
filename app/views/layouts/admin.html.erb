@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple CMS <%= @page_title || "Admin" %></title>
+
+    <style>
+      span.status{display:block; width:10px; height: 10px; margin:0.25em,}
+      span.status.true { background: green; color: green;}
+      span.status.false { background: red; color: red;}
+    </style>
+
+  </head>
+  <body>
+    <% if !flash[:notice].blank? %>
+    <%= flash[:notice] %>
+    <% end %>
+
+    <!-- before yueld -->
+      <%= yield %>
+    <!--fter yield -->
+
+  </body>
+</html>

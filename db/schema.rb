@@ -11,9 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322070710) do
+ActiveRecord::Schema.define(version: 20160325093221) do
 
   create_table "admin_users", force: :cascade do |t|
+    t.column "first_name", : string, :limit => 25
+    t.string "last_name", :limit 50
+    t.string "email" default => "", :null => false
+    t.string "password",:limit => 40
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.string   "username",   limit: 25
