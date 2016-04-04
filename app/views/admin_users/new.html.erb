@@ -1,0 +1,15 @@
+<% @page_title = "| Create New User"  %>
+
+<%= link_to("Back To List", :action => "index") %><br>
+
+<h1>Create Admin User</h1>
+
+  <%= form_for(:admin_user, :url => {:action => 'create'}) do |f| %>
+
+    <% # Calling partial template %>
+
+    <%= render(:partial => "form", :locals => {:f => f} ) %><br><br>
+
+    <%= submit_tag("Create User") %>
+
+  <% end %>

@@ -17,6 +17,7 @@
     <td><%= subject.name %> </td>
     <td><%= status_tag(subject.visible) %> </td>
     <td>
+      <%= link_to("View Pages", { :controller => 'pages', :subject_id => subject.id }, :class => 'show') %>
       <%= link_to("Show", { :action => 'show', :id => subject.id }, :class => 'show') %>
       <%= link_to("Edit", { :action => 'edit', :id => subject.id }, :class => 'edit') %>
       <%= link_to("Delete",{ :action =>'delete',:id => subject.id}, :class => 'delete') %>

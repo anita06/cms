@@ -20,7 +20,9 @@ class AccessController < ApplicationController
       end
     end
     if authorised_user
-      # Todo: mark users logged in
+      # mark users logged in
+      session[:user_id] = authorised_user.id
+      session[:username] = authorised_user.username
       flash[:notice] = "You are now logged in"
       redirect_to(:action => 'index')
     else
@@ -31,17 +33,10 @@ class AccessController < ApplicationController
 
   def logout
     # mark user as logged out
+    session[:user_id] = nil
+    session[:username] = nil
     flash[:notice] = "Logged Out"
     redirect_to(:action => "login")
   end
-
-  def confirmed_logged_in
-    flash[:notice] = "Please log in"
-    redirect_to(:action => 'login')
-    return false # halts the before_action
-  else
-    return true
-  end
   
-
 end

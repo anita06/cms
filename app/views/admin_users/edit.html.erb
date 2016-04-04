@@ -1,0 +1,12 @@
+<% @page_title = "| Edit Admin User" %>
+
+<%= link_to("Back To List", {:action => 'index'}, :class => 'test') %>
+<h1>Edit Admin User</h1>
+
+<%= form_for(:admin_user, :url => {:action => 'update', :id => @admin_user.id}) do |f| %>
+
+  <% # Calling partial template _form.html.erb  %>
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+  <%= submit_tag("Update User") %>
+
+<% end %>

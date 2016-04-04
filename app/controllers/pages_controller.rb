@@ -1,9 +1,14 @@
 class PagesController < ApplicationController
 
   layout "admin"
+  before_action :confirmed_logged_in
+  before_action :find_subject
 
   def index
-    @pages = Page.sorted
+      @pages = Page.sorted
+    # @pages = Page.where(:subject_id => @subject.id).sorted
+    # Better way to execute above code is as below
+    # @pages = @subject.pages.sorted
   end
 
   def show
@@ -55,17 +60,10 @@ class PagesController < ApplicationController
     params.require(:page). permit(:subjecy_id, :name, :permalink, :position, :visible)
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
+  def find_subject
+    if params[:subject_id]
+      @subject = Subject.find(params[:subject_id])
+    end
+  end
 
 end
